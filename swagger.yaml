@@ -1,0 +1,67 @@
+openapi: "3.0.3"
+info:
+  title: Ecom apis
+  version: "1.0"
+servers:
+  - url: http://localhost:3000/api/v1
+    description: localhost
+
+components:
+  schemas:
+    users:
+      type: object
+      properties:
+        email:
+          type: string
+          example : XXXXX@gmail.com
+        password:
+          type: string
+          example : 12345
+
+
+paths:
+  /users:
+    get:
+      description: ""
+      parameters: []
+      responses:
+        "200":
+          description: OK
+      
+  /users/{id}:
+    get:
+      description: ""
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+      responses:
+        "200":
+          description: OK
+  /users/login:
+    post:
+      description: ""
+      requestBody:
+        description: Get auth token with email and passowed
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/users"
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: "#/components/schemas/users"
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/users'          
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/users'
+        '400':
+          description: Invalid input
+
