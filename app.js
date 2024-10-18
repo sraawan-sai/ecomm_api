@@ -33,7 +33,11 @@ mongoose
   .catch((err) => {
     console.log(err);
   });
- 
+ // Middleware to add headers
+app.use((req, res, next) => {
+  res.setHeader('ngrok-skip-browser-warning', 'true');
+  next();
+});
 
 app.use(`${api}/users`,userSchema)
 

@@ -6,9 +6,7 @@ const jwt = require('jsonwebtoken')
 //const verifyToken = require("../middleware/authverfiy")
 
 
-router.get("/",{headers: {
-  'ngrok-skip-browser-warning': 'true'
-}},async (req, res) => {
+router.get("/",async (req, res) => {
   const user = await User.find();
 
   if (!user) return res.status(404).json("user data not fond");
