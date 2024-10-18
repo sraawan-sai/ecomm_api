@@ -3,7 +3,7 @@ info:
   title: Ecom apis
   version: "1.0"
 servers:
-  - url: https://79c6-223-185-44-153.ngrok-free.app/api/v1
+  - url: http://cod-useful-fairly.ngrok-free.app/api/v1
     description: localhost
 
 components:

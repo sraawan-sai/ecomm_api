@@ -5,7 +5,10 @@ const bycrpt = require("bcryptjs");
 const jwt = require('jsonwebtoken')
 //const verifyToken = require("../middleware/authverfiy")
 
-router.get("/",async (req, res) => {
+
+router.get("/",headers: {
+  'ngrok-skip-browser-warning': 'true'
+},async (req, res) => {
   const user = await User.find();
 
   if (!user) return res.status(404).json("user data not fond");
