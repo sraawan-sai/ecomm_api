@@ -12,7 +12,9 @@ const yaml = require("yamljs")
 const swaggerUi = require("swagger-ui-express")
 const swaggerDocument = yaml.load("swagger.yaml")
 
+
 const cors = require('cors');
+
 app.use(cors());
 
 app.use(express.urlencoded({extended:false}))
